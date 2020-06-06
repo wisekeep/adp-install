@@ -8,18 +8,22 @@ add-apt-repository ppa:ondrej/php
 apt-get update
 apt-get upgrade -y
 
-echo "--- Instalando Apache ,PHP 7.4 e alguns modulos ---"
+echo "--- Instalando Apache PHP 7.4 e alguns modulos ---"
 apt-get install apache2
 
-apt-get install apt-transport-https curl composer git git-flow perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions
-apt-get install php7.4 php7.4-cli php7.4-common php7.4-curl php7.4-dev php7.4-gd php-mbstring php7.4-mbstring php7.4-zip php7.4-xml php7.4-fpm libapache2-mod-php7.4 php-imagick php7.4-recode php7.4-tidy php7.4-xmlrpc php7.4-intl php-xml php7.4-xml php7.4-gd php7.4-zip php7.4-bcmath php-pgsql php7.4-sqlite3
+apt-get install apt-transport-https curl composer git git-flow perl libnet-ssleay-perl openssl 
+apt-get install libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions
+apt-get install php7.4 php7.4-cli php7.4-common php7.4-curl php7.4-dev php7.4-gd php-mbstring
+apt-get install php7.4-mbstring php7.4-zip php7.4-xml php7.4-fpm libapache2-mod-php7.4 php-imagick
+apt-get install php7.4-tidy php7.4-xmlrpc php7.4-intl php-xml php7.4-xml php7.4-gd php7.4-zip php7.4-bcmath php-pgsql php7.4-sqlite3
 
 echo "--- Instalando Descompactadores ---"
-apt-get install zip unzip 
+apt-get install zip unzip p7zip-full
 
 echo "--- Adicionando repositorio do PostgreSQL---"
 curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+sh -c 'echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
 apt-get update
 apt-get upgrade -y
 apt-get install postgresql pgadmin4 
